@@ -25,6 +25,7 @@ let render = Render.create({
 const WIDTH = render.options.width;
 const HEIGHT = render.options.height;
 
+// Setting up the walls around 
 function setup() {
     const wallOptions = {
     isStatic: true,
@@ -34,7 +35,7 @@ function setup() {
         lineWidth: 10
     },
 };
-
+// creating the walls
 const thickness = 60;
 Composite.add(engine.world, [
     Bodies.rectangle(WIDTH/2,  HEIGHT, WIDTH-5, thickness, wallOptions),
@@ -46,9 +47,9 @@ Composite.add(engine.world, [
 
 
 };
-
+//turn of gravity
 engine.gravity.y = 0;
-
+// setting up options for particles
 const particleOptions = {
     restitution:1,
     friction: 0,
@@ -81,9 +82,9 @@ for (let i = 0; i < N; i++) {
     Composite.add(engine.world, particle);
 
 };
-
+// create runner and run engine with it
 let runner = Runner.create();
 Runner.run(runner, engine);
 
-
+// run the renderer to see what comes out!
 Render.run(render);
